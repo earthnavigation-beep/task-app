@@ -14,6 +14,9 @@ addBtn.addEventListener('click', () => {
     contentDiv.innerHTML = inputForm.value.replace(/\n/g, '<br>');
 
     updateLocalStorage(editingTaskId, inputForm.value); // ローカルストレージも更新
+    displayTasks();
+    TaskListBtnEvent(); // 🔥 編集後にもイベント再設定
+    ImageBtnEvent();
 
     editingTaskId = null; // 編集モード解除
     addBtn.textContent = '追加'; // 🔥 ラベルを元に戻す
@@ -162,7 +165,7 @@ const TaskListBtnEvent = () => {
 const updateLocalStorage = (id, newContent) => {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const updatedTasks = tasks.map(task => {
-    if (task.id === id) {
+    if (task.id === parseInt(id)) {
       return { ...task, content: newContent };
     }
     return task;
