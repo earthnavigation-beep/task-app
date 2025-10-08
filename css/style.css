@@ -1,0 +1,77 @@
+body {
+    background: #f1f1f1;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 7vh;
+    background: #7a7a7a;
+    background: linear-gradient(0deg, rgba(122, 122, 122, 1) 0%, rgba(217, 217, 217, 1) 21%, rgba(255, 255, 255, 1) 100%);
+}
+
+.logo {
+    color: rgb(85, 85, 85);
+    font-size: 25px;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.nav-link li {
+    list-style: none;
+}
+
+.nav-link li a {
+    text-decoration: none;
+    color: dimgray;
+}
+
+.wrapper {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 100px 20px 0;
+    max-width: 1000px;
+}
+
+.home-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px 0;
+    display: flex;
+    flex-wrap: wrap; /* 折り返しを許可 */
+    /* カード間にスペース */
+    gap: 20px;
+    /* カード間の余白（任意） */
+}
+
+.card-link {
+  flex: 0 1 calc((100% - 40px) / 3); /* 3列レイアウト（gap分を引いて調整） */
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card {
+  cursor: pointer;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}

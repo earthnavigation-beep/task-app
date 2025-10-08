@@ -1,0 +1,302 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  color: #FFF;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+body {
+  background: #f1f1f1;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  /*線の種類（二重線）太さ 色*/
+  border-bottom: double 5px #FFC778;
+  margin-bottom: 25px;
+}
+
+.penguin::before {
+    content: "";
+    display: inline-block;
+    background-image: url('images/penguin.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1em;
+    height: 1em;
+}
+
+.piro::before {
+    content: "";
+    display: inline-block;
+    background-image: url('images/pirochin.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.input-area {
+  text-align: left;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  border: 1px solid #CCC;
+  outline: none;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+textarea {
+  border: 1px solid #CCC;
+  outline: none;
+  border-radius: 10px;
+}
+
+.task-area {
+  width: 70%;
+}
+
+.date-area {
+  width: 15%;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.task-input {
+  font-size: 15px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.error-msg {
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+  display: none;
+}
+
+.error-msg.show {
+  display: block;
+}
+
+.date {
+  border: 1px solid #CCC;
+  padding: 12px 10px;
+}
+
+.add-btn {
+  background: #3ca83c;
+  margin-top: 20px;
+}
+
+.display-task {
+  text-align: left;
+  width: 100%;
+  margin: 100px auto 0 auto;
+}
+
+.task-item {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #CCC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFF;
+  padding: 8px 20px;
+  transition: 0.3s linear;
+}
+
+.item-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item-date {
+  background: #000000;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.complete {
+  background: #ffef64;
+}
+
+.image-btn {
+  background: #79ff8b;
+}
+
+.delete-btn {
+  background: #e95656;
+}
+
+.complete-btn {
+  background: #0881f1;
+}
+
+.csv-import {
+  font-size: 18px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.button {
+  display: inline-block; /* ボタンを横並びにする */
+  border: none; /* 枠線をなくす */
+  border-radius: 5px; /* 角丸をつける */
+  padding: 10px 15px; /* ボタンの内側の余白 */
+  margin: 15px; /* ボタン同士の余白 */
+  background-color: #96b97d; /* ボタンの背景色 */
+  color: white; /* ボタンの文字色 */
+  text-align: center; /* ボタンのテキストを中央揃えにする */
+  text-decoration: none; /* テキストに下線をつけない */
+  font-size: 15px; /* テキストのフォントサイズ */
+  cursor: pointer; /* マウスポインタを変更する */
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* 上下ボタンのラッパーを縦並びに */
+.item-btn {
+  display: flex;
+  align-items: center;
+}
+
+/* 上下ボタンを縦並びにし、削除ボタンの右に配置 */
+.move-btns-vertical {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+/* 上下ボタンのサイズとスタイル */
+.up-btn,
+.down-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  background-color: #555;
+  color: #fff;
+  margin: 5px 0;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.edit-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 10px;
+  background-color: #008cff;
+  color: #fff;
+  margin: 5px 0;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.up-btn:hover,
+.down-btn:hover {
+  background-color: #777;
+}
+
+.edit-btn:hover {
+  background-color: #39a6ff;
+}
+
+.manual-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.manual-btn:hover {
+  background-color: #45a049;
+}
+
+.sortable-ghost {
+  opacity: 0.4;
+  background: #ffeeba;
+}
+
+.task-item:hover {
+  background-color: #f9f9f9; /* 少し明るくする */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15); /* ふんわり影をつける */
+  transform: scale(1.01); /* わずかに拡大して浮かせる */
+  transition: all 0.2s ease-in-out;
+}
+
+.task-item.complete:hover {
+  background-color: #fff8d2;
+  transform: none;
+  box-shadow: none;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-note {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

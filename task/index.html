@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <title>手順タスク</title>
+</head>
+
+<body>
+    <script src="../js/nav.js"></script>
+    <script>
+        document.body.appendChild(createNav()); // JS関数でナビを挿入
+    </script>
+    <div class="wrapper">
+        <h1 class="piro">本日のTODOリスト</h1>
+        <div class="input-area">
+            <div class="task-area">
+                <label for="task-input">タスク(必須)</label>
+                <!--タスクの入力フォーム-->
+                <button type="button" onclick="insertSpanNote()">インライン注意書き（span）</button>
+                <button type="button" onclick="insertDivNote()">改行注意書き（div）</button>
+                <textarea class="task-input" id="task-input" rows="5" placeholder="タスク内容を入力してください（改行可）"></textarea>
+                <!--マニュアル画像名-->
+                <input type="file" id="image-upload" accept="image/*">
+                <input type="text" id="image-name" placeholder="画像ファイル名" readonly>
+                <!--エラーメッセージ-->
+                <div class="error-msg">タスクを入力してください!</div>
+            </div>
+            <div class="date-area">
+                <label for="date">期日</label>
+                <!--期日の入力フォーム-->
+                <input type="date" class="date" id="date">
+            </div>
+            <!--追加ボタン-->
+            <button class="btn add-btn">追加</button>
+        </div>
+        <div class="display-task">
+            <!--タスクを表示する-->
+            <ul class="task-list"></ul>
+        </div>
+        <h1>CSVで現在の項目をダウンロード</h1>
+        <button onclick="downloadCSV()" class="button">CSV保存</button>
+        <h1>CSVからタスクをアップロード</h1>
+        <input type="file" class="csv-import" id="csv-import" accept=".csv" />
+        <h1>ストレージをクリアにする</h1>
+        <label for="task-input">もとに戻せません</label>
+        <button id="reset-storage" class="button">ストレージ初期化</button>
+    </div>
+    <!-- フッター -->
+    <footer class="footer">
+        <p>copyright &copy; 2025 Hiroyuki Doi</p>
+        <div class="social-links">
+            <a href="#">X-Japan</a> | <a href="#">ギトギト</a>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="../js/commonTask.js"></script>
+    <script src="todo.js"></script>
+    <script src="js/csv.js"></script>
+    <script src="js/taskStorage.js"></script>
+    <script src="js/taskRenderer.js"></script>
+    <script src="js/taskEvents.js"></script>
+</body>
+
+</html>
