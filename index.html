@@ -6,6 +6,7 @@
     <title>Knowledge</title>
     <link href="lib/bootstrap-5.3.0-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendar.css">
 </head>
 
 <body>
@@ -22,19 +23,37 @@
 
     <div class="home-wrapper">
         <a href="task/index.html" class="card-link">
-            <div class="card">カード1</div>
+            <div class="card">
+                <img src="images/tasklady.png" alt="タスク管理" class="card-image">
+                <p>タスク管理</p>
+            </div>
         </a>
         <a href="task2/index.html" class="card-link">
-            <div class="card">カード2</div>
+            <div class="card">
+                <img src="images/taskman.png" alt="タスク管理" class="card-image">
+                <p>タスク管理2テキスト</p>
+            </div>
+        </a>
+        <a href="task3/index.html" class="card-link">
+            <div class="card">
+                <img src="images/taskearth.png" alt="タスク管理" class="card-image">
+                <p>便利ツール</p>
+            </div>
+        </a>
+        <div class="card-link" id="calendar">
+            <div class="card">スケジュール</div>
+            <select id="monthSelector"></select>
+            <div class="card-link" id="calendar"></div>
+        </div>
+        <a href="task3/index.html" class="card-link">
+            <div class="card">カード3</div>
         </a>
         <a href="task3/index.html" class="card-link">
             <div class="card">カード3</div>
         </a>
-        <a href="" class="card-link">
-            <div class="card">スケジュール</div>
-        </a>
     </div>
     <script src="./js/script.js"></script>
+    <script src="js/calendar.js"></script>
 </body>
 
 </html>
