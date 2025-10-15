@@ -8,30 +8,42 @@ addBtn.addEventListener('click', () => {
   }
 
   if (editingTaskId) {
-    // 編集モード：既存タスクを更新
     const taskItem = document.querySelector(`[data-task-id="${editingTaskId}"]`);
     const contentDiv = taskItem.querySelector('.task-content');
-    contentDiv.innerHTML = inputForm.value.replace(/\n/g, '<br>');
 
-    updateLocalStorage(editingTaskId, inputForm.value); // ローカルストレージも更新
+    const rawInput = inputForm.value;
+    const sanitized = sanitizeHtml(rawInput);
+
+    contentDiv.innerHTML = sanitized;
+
+    updateLocalStorage(editingTaskId, {
+      raw: rawInput,
+      content: sanitized
+    });
+
     displayTasks();
-    TaskListBtnEvent(); // 🔥 編集後にもイベント再設定
+    TaskListBtnEvent();
     ImageBtnEvent();
 
-    editingTaskId = null; // 編集モード解除
-    addBtn.textContent = '追加'; // 🔥 ラベルを元に戻す
-
+    editingTaskId = null;
+    addBtn.textContent = '追加';
   } else {
     // 通常の新規追加処理
     let taskId = setTaskId();
+
+    const rawInput = inputForm.value;
+    const sanitized = sanitizeHtml(rawInput);
+
     const task = {
       id: taskId,
-      content: inputForm.value,
+      raw: rawInput,         // 編集用に元の入力を保存
+      content: sanitized,    // 表示用にサニタイズ済みのHTMLを保存
       date: inputDate.value ? formattedDate(inputDate.value) : null,
       completed: false,
       imagePath: inputImageName.value ? `images/${inputImageName.value}` : null
     };
-    taskList.innerHTML += createTaskElement(task);
+
+    taskList.innerHTML += createTaskElement(task); // 表示用に sanitized を使うように
     TaskListBtnEvent();
     saveLocalStorage(task);
     ImageBtnEvent();
@@ -57,15 +69,11 @@ const setTaskId = () => {
 const TaskListBtnEvent = () => {
   const deleteBtns = document.querySelectorAll('.delete-btn');
   const compBtns = document.querySelectorAll('.complete-btn');
-  //deleteBtnsを1つずつ取り出して処理を実行する
   deleteBtns.forEach((deleteBtn) => {
-    //削除ボタンをクリックすると処理を実行する
     deleteBtn.addEventListener('click', (e) => {
-      //削除するタスクのliタグを取得
       const deleteTarget = e.target.closest('.task-item');
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       const targetId = deleteTarget.closest('li').dataset.taskId;
-      //tasksから削除するタスクを取り除く
       const updatedTasks = tasks.filter(task => task.id !== parseInt(targetId));
       //ローカルストレージにupdatedTasksを保存する
       localStorage.setItem('tasks', JSON.stringify(updatedTasks));
@@ -162,13 +170,15 @@ const TaskListBtnEvent = () => {
 }
 
 // ローカルストレージの更新関数
-const updateLocalStorage = (id, newContent) => {
+function updateLocalStorage(taskId, updatedData) {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const updatedTasks = tasks.map(task => {
-    if (task.id === parseInt(id)) {
-      return { ...task, content: newContent };
+    if (task.id == taskId) {
+      task.raw = updatedData.raw;
+      task.content = updatedData.content;
     }
     return task;
   });
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-};
+}
+

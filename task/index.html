@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>手順タスク</title>
 </head>
 
@@ -18,14 +20,15 @@
         document.body.appendChild(createNav()); // JS関数でナビを挿入
     </script>
     <div class="wrapper">
-        <h1 class="piro">本日のTODOリスト</h1>
+        <h1 class="piro">本日のTODOリスト<button id="reset-storage" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button></h1>
         <div class="input-area">
             <div class="task-area">
                 <label for="task-input">タスク(必須)</label>
                 <!--タスクの入力フォーム-->
                 <button type="button" onclick="insertSpanNote()">インライン注意書き（span）</button>
                 <button type="button" onclick="insertDivNote()">改行注意書き（div）</button>
-                <textarea class="task-input" id="task-input" rows="5" placeholder="タスク内容を入力してください（改行可）"></textarea>
+                <textarea class="task-input" id="task-input" rows="5"
+                    placeholder="タスク内容を入力（改行可）※半角カンマを入れてはいけません"></textarea>
                 <!--マニュアル画像名-->
                 <input type="file" id="image-upload" accept="image/*">
                 <input type="text" id="image-name" placeholder="画像ファイル名" readonly>
@@ -44,13 +47,32 @@
             <!--タスクを表示する-->
             <ul class="task-list"></ul>
         </div>
-        <h1>CSVで現在の項目をダウンロード</h1>
-        <button onclick="downloadCSV()" class="button">CSV保存</button>
-        <h1>CSVからタスクをアップロード</h1>
-        <input type="file" class="csv-import" id="csv-import" accept=".csv" />
-        <h1>ストレージをクリアにする</h1>
-        <label for="task-input">もとに戻せません</label>
-        <button id="reset-storage" class="button">ストレージ初期化</button>
+
+        <div class="foot-wrapper">
+            <div class="card2">
+                <p class="subtitle"><i class="bi bi-filetype-csv icon-space"></i>現在のタスクをCSV保存する</p>
+                <button onclick="downloadCSV()" class="button"><i class="bi bi-filetype-csv icon-space"></i>CSV保存</button>
+            </div>
+            <div class="card2">
+                <p class="subtitle"><i class="bi bi-upload icon-space"></i>CSVからタスクをアップロード</p>
+                <input type="file" class="csv-import" id="csv-import" accept=".csv" />
+            </div>
+            <div class="card2">
+                <p class="subtitle-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</p>
+                <button id="reset-storage" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button>
+                <p class="task-note">※もとに戻せません</p>
+            </div>
+            <div class="card2">
+                <p class="subtitle-sred">注意事項</p>
+                <ul class="ul-word">
+                    <li>タスク内容に半角カンマ「,」を入れないようにしてください。</li>
+                    <li>編集時、タスクの文章の前後にスペースが入ってしまいます。削除してください。</li>
+                    <li>タスクの順番は保存されますが、万能ではないため、<span class="task-note">順番が前後</span>する可能性があります。</li>
+                    <li>保存したCSVは大事にご自身で管理してください。</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
     <!-- フッター -->
     <footer class="footer">
@@ -60,7 +82,7 @@
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.0/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <script src="../js/commonTask.js"></script>
     <script src="todo.js"></script>

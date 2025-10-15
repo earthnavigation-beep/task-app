@@ -1,0 +1,21 @@
+table {
+  width: 250px;
+  border-collapse: collapse;
+}
+td, th {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+h2 {
+  font-size: medium;
+  text-align: center;
+}
+
+.sun {
+  color: #ff0000;
+}
+
+.today {
+  background-color: #ccffcc;
+}

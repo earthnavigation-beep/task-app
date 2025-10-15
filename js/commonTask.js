@@ -24,3 +24,28 @@ function insertDivNote() {
   const noteTag = '<div class="task-note">※ここに注意書きを入力</div>';
   textarea.value += '\n' + noteTag + '\n';
 }
+
+function sanitizeHtml(input) {
+  return DOMPurify.sanitize(input, {
+    ALLOWED_TAGS: ['span', 'div', 'a', 'br'],
+    ALLOWED_ATTR: ['class', 'href', 'target', 'rel']
+  });
+}
+
+// const quill = new Quill('#editor', {
+//   theme: 'snow',
+//   modules: {
+//     toolbar: [
+//       [{ 'color': [] }, { 'background': [] }],
+//       ['bold', 'italic', 'underline'],
+//       ['link', 'image'],
+//       [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+//     ]
+//   }
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const quill = new Quill('#task-input', {
+//     theme: 'snow'
+//   });
+// });

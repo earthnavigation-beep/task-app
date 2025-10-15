@@ -1,10 +1,35 @@
-﻿ID,タスク,期日,画像リンク
-1,"<div class=task-note>※初期設定が完了するまでLANケーブルはつながない</div><br>①本体の電源を入れる<br>②国を選択せず…shift+F10<br>③CMD入力「oobe\BypassNRO.cmd」<br><div class=task-note>※成功すれば再起動</div>",,images/set1.png
+ID,タスク,期日,画像リンク
+1,"<div class=task-note>※初期設定が完了するまでLANケーブルはつながない</div><br>①本体の電源を入れる<br>②国を選択せず…shift+F10<br>③CMD入力「oobe\BypassNRO.cmd」<br>　⇒※ローカルアカウントでログインするための設定<br><div class=task-note>※成功すれば再起動</div>",,images/set1.png
 2,"①国「日本」⇒IME画面はスキップ⇒「ネットワークに接続しましょう」の画面が表示されたら⇒shift+F10<br>②CMD入力「taskmgr」Enter<br><div class=task-note>※タスクマネージャーのプロセス画面が表示される</div><br>③バックグラウンドのプロセス⇒ネットワークの接続フロー（展開しない）⇒タスクを終了する⇒×で閉じる。",,images/set2.png
 3,"①exitを入力しCMDを終了<br>②ライセンス画面⇒同意⇒名前「任意の名前」<span class=task-note>※英数小文字</span>⇒次へ⇒パスワード空欄⇒次へ⇒デバイスのプライバシー設定の選択画面⇒すべて「いいえ」⇒同意<br><div class=task-note>※初期セットアップのメッセージが完了するまで待つ</div><br>",,images/set3.png
 4,"<div class=task-note>※ここでLANケーブルをつなぐ。</div><br>①サーバールーム右ラックNo.9　※スイッチ081D<br>　No.17～No.22が研究棟　IP202.236.115.xxx<br>②テストIPの設定　※インターネット/イーサーネット<br>　202.236.115.131<br>　サブネットマスク：255.255.255.0<br>　デフォルトゲートウェイ：202.236.155.254<br>　DNS1：10.2.0.1<br>　DNS2：10.2.0.2<br>③インターネットの接続⇒テスト用のIP設定+DSN項目<br>　DNS「この接続のアドレスをDNSに登録する」のチェックを外す",,images/set4.png
 5,"<div class=task-note>※各種アプリをインストールします</div><br>①Office365をインストール　※USB<br>　S-Naviからインストールすることもできると思うが…。",,images/set5.png
-6,"chromeブラウザをインストールします<br>①以下の公式サイトからChromeSetup.exeをダウンロード<br>　<span class=""task-url""><a href=""https://www.google.com/intl/ja/chrome/"" target=""_blank"" rel=""noopener"" draggable=""false"">公式サイト</a></span><br>②ご協力くださいのチェックを外す　☑ ⇒ ☐<br>③ダウンロード完了後、ChromeSetup.exeをダブルクリック<br>④このアプリがデバイスに変更を加えることを許可しますか⇒はい",,images/set6.png
+6,"chromeブラウザをインストールします<br>①以下の公式サイトからChromeSetup.exeをダウンロード<br>　<span class=task-url><a href=https://www.google.com/intl/ja/chrome/ target=_blank rel=noopener draggable=false>公式サイト</a></span><br>②ご協力くださいのチェックを外す　☑ ⇒ ☐<br>③ダウンロード完了後、ChromeSetup.exeをダブルクリック<br>④このアプリがデバイスに変更を加えることを許可しますか⇒はい",,images/set6.png
 7,"FireFoxブラウザをインストールします<br>①窓の杜からダウンロードし、インストール<br>②オプションのチェックを外す　☑ ⇒ ☐<br>③あなたの安全を守ります　☑ ⇒ ☐<br>④この手順をスキップする ⇒ ブラウジング開始",,images/set7.png
-8,"Acrobat Readerをインストール<br>①公式サイトからReader_jp_install.exeをダウンロード<br><div class=""task-url"">　<a href=""https://get.adobe.com/jp/reader/"" target=""_blank"" rel=""noopener"" draggable=""false"">公式サイト</a></div><br>②Reader_jp_install.exeをダブルクリックし、インストール",,images/set8.png
-9,"Lhaplasをインストール<br>①窓の杜よりダウンロード",,images/set9.png
+8,"Acrobat Readerをインストール<br>①公式サイトからReader_jp_install.exeをダウンロード<br><div class=task-url>　<a href=https://get.adobe.com/jp/reader/ target=_blank rel=noopener draggable=false>公式サイト</a></div><br>②Reader_jp_install.exeをダブルクリックし、インストール",,images/set8.png
+9,"Lhaplusをインストール<br>①窓の杜よりダウンロード<br>　ダウンロードしたインストーラを実行<br>②セットアップダイアログが立ち上がり，「次へ」を押下。<br>③必要に応じて設定画面にて設定変更しますが、通常はこのままでよい。<br><div class=task-note>LhaplasはVer1.74以降アップデートされておらず、脆弱性の危険性が未解決のままです。個人的には利用をお勧めしないが、7-Zip(ver.25以降)などへの移行をお勧めします。By D</div><br><br>    ",,images/set9.png
+10,"FortiClientをインストール<br>①マニュアルにはUSB使用と書いてあるが、S-Naviからでもよいと思うが…",,images/set10.png
+11,"ウィルスバスター Corp. 64ビット<br>①USB使用だと思うが、手順はまだわからない。<br>②WindowsによってPCが保護されました。<br>③詳細情報⇒実行⇒数回OK⇒完了⇒再起動<br>　Chrome：https://10.3.0.3:4343/officescam<br>④このサイトは安全ではありません<br>⑤詳細情報⇒アクセスページに移動⇒ログイン画面⇒こちらから<br>⑥64ビットパッケージをダウンロード⇒はい⇒再起動<br>⑦タスクバーMマーク右クリック⇒今すぐアップデート",,images/set11.png
+12,"VLCメディアプレイヤーインストール<br>①公式サイトからインストール<br><span class=task-url>　<a href=https://www.videolan.org/vlc/ target=_blank rel=noopener draggable=false>公式サイト</a></span><br>②ダウンロードボタンをクリックし、インストーラーを任意の場所に保存<br>③インストーラーをダブルクリック、日本語を選択<br>④ディスクトップのショートカットチェックを外す。<br>⑤セットアップウィザードが完了したら「完了」を押下",,images/set12.png
+13,"<div class=task-note>ライセンス情報を確認します</div><br>①スタート⇒設定⇒システム⇒ライセンス認証<br>②ライセンス認証の状態が「アクティブ」になっていればOK",,images/set13.png
+14,"Officeライセンス認証確認<br>①何かしらのofficeアプリ(Word、Excel、PowerPoint)を開く<br>②ファイル⇒アカウント<br>③製品情報の欄に「ライセンスされた商品」と表示されていること",,images/set14.png
+15,"既定のアプリ：ブラウザをEdgeにする<br>①スタート⇒設定⇒アプリ⇒既定のアプリ<br>②画面を下にスクロールし、「Microsoft Egde」をクリックします。<br>③「既定値に設定」ボタンをクリックします。<br>④「既定値に設定」ボタンの左に、チェックマークが表示されたことを確認します。<br>⑤「×」ボタンをクリックし、「設定」を閉じます。",,images/set15.png
+16,"デバイスの自動セットアップをオフにする<br>①スタート⇒設定⇒サインインオプション<br>　更新後に自動にセットアップ<br>",,images/set16.png
+17,"<div class=task-note>アップデート作業</div><br>Windows update<br>①詳細オプション<br>②その他のMicrosoft製品の更新プログラムを受け取る OFF⇒ON<br>③アップデートを実行し、適宜再起動<br>④最新の状態です⇒更新プログラムのチェック⇒最新の状態です<br>⑤[利用可能になったらすぐに最新の更新プログラムを取得する]<br>　⇒今は実行しない<br>    ",,images/set17.png
+18,"各種ブラウザのアップデート<br>①Edge　⇒　履歴削除<br>②chrome　⇒　履歴削除<br>③FireFox　⇒　履歴削除",,images/set18.png
+19,"Acrobat Readerのアップデート<br>①Acrobat Readerを起動<br>②メニューからヘルプ⇒アップデートの有無をチェック<br>③アップデートがあれば実施、なければそのままでOK",,images/set19.png
+20,"VLCメディアプレイヤーのアップデート<br>①VLCメディアプレイヤーを起動<br>②メニューの「ヘルプ」⇒アップデートの確認<br>③最新のVLCメディアプレイヤーを使用中と表示されればOK<br>　最新でなければそのままアップデート作業へ",,images/set20.png
+21,"ウィルスバスターのアップデート<br>①スタートメニューからTrend Micro Apex Oneセキュリティエージェント<br>②セキュリティエージェントを開きアップデートを実行",,images/set21.png
+22,"パブリックディスクトップ<br>①C:\Users\Public\Desktop<br><span class=task-note>↑マニュアルだとユーザー名のパブリックとなっているが、恐らくパブリックディスクトップだろうと思う</span><br>②ディスクトップにあるショートカットを切り取って貼り付け<br>③1列目<br>・PC<br>・教員共有<br>・ゴミ箱<br>・Edge<br>・Chrome<br>・FireFox<br>・VLCメディアプレイヤー<br>・Adobe Acrobat<br>・Lhaplus<br>④2列目<br>・Excel<br>・Word<br>・PowerPoint<br>・FortiClient<br>・谷岡学園WEBシステム<br>・S-Navi<br>・大阪商業大学<br>・出席確認システム(Saai-MAS)<br>・授業支援システム(学ばコース)",,images/set22.png
+23,"インターネットのデフォルト設定<br>①スタートページ設定(Edge、FireFoxはYahoo!に設定)<br>②タスクバーにMicrosoft Edge追加(ピン止め)<br>③Edge<br>　1.アドレスバーで使用する検索エンジンをGoogleに設定<br>　2.Edgeを既定のブラウザに設定<br>④大阪商業大学　各リンクの起動確認<br>⑤S-Navi「谷岡学園 WEBシステム」へのURLリンクをEdgeのお気に入りに追加",,images/set23.png
+24,"SSL-VPN設定<br>①Forti Client SSL VPN 接続",,images/set24.png
+25,"<span class=task-note>設定項目に進みます</span><br>高速スタートアップ＆スリープのOFF<br>①コントロールパネル⇒システムとセキュリティ⇒電源オプション<br>　電源ボタンの動作を選択する<br>②現在利用できない設定に変更します<br>③シャットダウン状態で「スリープ状態の…」のチェックを外す ☑ ⇒ ☐<br>④高速スタートアップを有効にするのチェックを外す ☑ ⇒ ☐<br>⑤変更の保存",,images/set25.png
+26,"時刻の同期<br>①コントロールパネル⇒時計と地域⇒日付と時刻⇒インターネット項目<br>　⇒設定の変更⇒インターネット時刻サーバーと同期する⇒「10.2.0.1」入力<br>　⇒今すぐ更新⇒エラー⇒×⇒再確認⇒同期しました⇒OK",,images/set26.png
+27,"①フォルダ設定(拡張子を表示)<br>②エクスプローラーを開く⇒「…」⇒オプション⇒ホーム⇒PC⇒適用⇒OK<br><span class=""task-note"">　↑ここがよくわからない</span>",,images/set27.png
+28,"DVDドライブをQドライブへ変更<br>①PC右クリック⇒その他のオプション⇒管理⇒ディスクの管理<br>　⇒CD-ROM(D)右クリック⇒ドライブ文字とパスの変更⇒変更<br>　⇒次のドライブに割り当てる⇒Q⇒OK⇒はい⇒閉じる",,images/set28.png
+29,"①ディスクトップアイコンの並び<br>②ログインユーザー名を性名に変更<br>③コンピューター名をつける",,images/set29.png
+30,"履歴データクリア<br>①ブラウザ3種(Edge、chrome、FireFox)<br>②IME入力履歴(学習と辞書 ⇒ 入力履歴の消去)<br>③ダウンロードフォルダ<br>④通知(タスクバー右下の吹き出し)",,images/set30.png
+31,"ディスククリーンアップ<br>①Cクリック⇒クリーンアップ⇒システムファイルのクリーンアップ<br>・Windows Update<br>・配信の最適化ファイル<br>②ファイルの削除<br>③ゴミ箱の削除",,images/set31.png
+32,"①最近使用したファイル(クイックアクセス)<br>　フォルダ⇒オプション⇒プライバシー<br>②クリップボード<br>　設定⇒システム⇒クリップボード<br>③最近使ったアプリ、アイテム等のの使用履歴<br>　設定⇒個人設定⇒スタート⇒スタートで推奨される～表示するをオフ・オン",,images/set32.png
+33,"検索履歴<br>①設定⇒プライバシーと～⇒検索アクセス許可⇒デバイスの検索履歴をクリア<br>アクティビティの履歴<br>②設定⇒プライバシーと～⇒アクティビティの履歴⇒アクティビティの履歴をクリア",,images/set33.png
+34,"<span class=""task-note"">ドメイン参加</span><br>①PC右クリック⇒プロパティ⇒ドメインまたはワークグループ<br>②コンピューター名を変更<br>③所属するグループ<br>　ドメイン：shodai.ouc<br>　ID：shodai\administrator<br>　PW：CaNa****<br>④ドメインにようこそ⇒再起動⇒User(※PWなし)<br>⑤ネットワーク⇒固定IPアドレス設定",,images/set34.png

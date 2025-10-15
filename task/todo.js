@@ -64,18 +64,6 @@ downBtns.forEach((downBtn) => {
   });
 });
 
-// ローカルストレージに順番変更を保存する
-const updateStorageOrder = () => {
-  const newOrder = [];
-  document.querySelectorAll('.task-item').forEach(item => {
-    const taskId = parseInt(item.dataset.taskId);
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const task = tasks.find(t => t.id === taskId);
-    if (task) newOrder.push(task);
-  });
-  localStorage.setItem('tasks', JSON.stringify(newOrder));
-};
-
 // ドラッグアンドドロップによる上下入れ替え
 const sortable = new Sortable(taskList, {
   animation: 150,
