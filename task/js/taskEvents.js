@@ -52,6 +52,7 @@ addBtn.addEventListener('click', () => {
   // 入力フォームをリセット
   inputForm.value = '';
   inputDate.value = '';
+  inputImageName.value ='';
 });
 
 //タスクのidをセットする

@@ -1,0 +1,13 @@
+ID,タスク,期日,画像リンク
+1,"<div class=""task-note"">「メールアドレス登録申請書」より、「希望ユーザ名」の第1希望から第３希望が条件にあっているか確認する</div><br>①以下のURLにアクセスし、指定のアカウントでログインします<br>　https://admin.microsoft.com<br><div class=""task-url"">　<a href=""https://admin.Microsoft.com"" target=""_blank"" rel=""noopener"">Microsoft管理画面</a></div>②アカウントを選択する画面で、別のアカウントを使用する<br>③アカウントをセキュリティで保護しましょう画面でも、別のアカウントを使用する<br>④再びアカウントを選択する画面で、大商大情報処理室を選択<br>⑤③と同じ画面が表示されるので、再び別のアカウントを使用する<br>⑥④と同じ画面が表示されるので、大商大情報処理室を選択<br>⑦ようやく管理画面が表示されます。",,images/ade1.png
+2,"<div class=""task-note"">このタスクは、ログインができた場合は飛ばしてよい</div><br>「詳細情報が必要」画面の表示がでる場合<br>①「別のアカウントを使用する」<br>②「次へ」⇒サインイン要求を承認番号が表示<br>③「詳細情報」を選択<br>④「電話番号末尾xx61」を選択する。<br>⑤外線を取り案内に従い電話機の「#」を押してサインインができる。",,images/ade2.png
+3,"①メニューからアクティブなユーザーを選択<br>②右上の検索窓より、メールアドレス登録申請書の@以前の文字列を入力し、既に登録がないか確認<br>③3つの候補の内、なるべく第一希望に合わせたアドレスを決定し、対象のアカウント欄に☑をいれる。<br>④リモートディスクトップ接続し、コンピューター名は以下の名称を選択するか入力<br>　コンピューター名：oucazcsv<br>⑤資格情報を入力<span class=""task-note"">　ID：ADDUser<br>　PW：941***</span><br>　リモートディスクトップ接続完了",,images/ade3.png
+4,"エクスプローラーを開き、以下の手順に沿って行います。<br>①Cドライブの中のtmpフォルダを開く<br>　C:\tmp<br>②メモ帳のUser-Staff.csvを開きます。<br>③職員番号と④ユーザー名は以前のものが残っているので、それを上書きして使用。複数ある場合は複数行入力<br><div class=""task-note"">※複数登録する場合はマニュアル画像を参照</div>",,images/ade4.png
+5,"①スタート⇒PowerShell右クリック⇒管理者として実行する<br>②C:Tools\Scripts\1-3_User.txtを開き、末行（#Stop-Transcri）以外をコピー<br>③PowerShell画面の末尾で右クリックで貼付。内容確認後EnterでScriptを実行する。<br>　※メモ帳は上書きせずバツ印で閉じる。",,images/ade5.png
+6,"①C:\Tools\ADSync\ADSync.batをダブルクリック<br>　コマンドが起動し、1を入力してEnterを押すとScriptが実行される<br>　⇒最後に「Success」の表記になれば完了<br>②「Microsoft365管理センター」の検索画面で、登録したユーザーを入力<br>　ユーザーが表示されたことを確認後、管理センター画面を最小化しておく。<br>",,images/ade6.png
+7,"①C:\Tools\Scripts\2-0_Connect.txtを開き、中をすべてコピー<br>②PowerShell末尾で右クリック(貼り付け)<br>③ログインポップアップが表示され、以下のログイン情報を入力<br><div class=""task-note"">　ID：ouco365@daishodai.ac.jp<br>　PW：*****@6161<br></div>OKを押してログイン<br>",,images/ade7.png
+8,"①C:\Tools\Scripts\2-3_User.txt<br>　末行（#Stop-Transcri）以外をコピー<br>②PowerShell末尾で右クリック(貼り付け)、Enterで実行<br>③exit",,images/ade8.png
+9,"<div class=""task-note"">※このタスクは確認事項のみ</div><br>マニュアル画像参照<br>【成功例】最後の「警告文」は必ず表示される<br>複数名登録した場合は、複数行表示される",,images/ade9.png
+10,"Exchange管理センターを開き、画面右上の人型アイコンを選択<br>　「他のメールボックスを表示」を選択<div class=""task-url"">　<a target=""_blank"" href=""https://admin.exchange.microsoft.com"" rel=""noopener"">Exchange管理センター</a></div><br>作成したメールアドレスを①入力後、②ユーザーを選択する。",,images/ade10.png
+11,"①設定<br>②地域<br>③言語と④タイムゾーンが正しく設定されていることを確認<br>　⇒タイムゾーンはなにも表示されていないが、正しく設定されているようである",,images/ade11.png
+12,"①「検索窓」に作成したユーザを入力し該当ユーザを選択<br>②メールボックスを選択⇒メッセージサイズ制限の管理<br>③メッセージの最大サイズを：102400KB<br>④アドレス帳ポリシー⇒「Faculty ABP」となっていること。<br>⑤サインアウト",,images/ade12.png

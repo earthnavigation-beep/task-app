@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#chat-box {
+    height: 400px; /* 必要に応じて調整 */
+    overflow-y: auto; /* スクロール可能にする */
+    margin-bottom: 50px; /* 入力部分と少し距離を設ける */
+}
+
+#user-input, button {
+    position: fixed;
+    bottom: 10px; /* 画面下からの距離を指定 */
+    left: 10px; /* 必要に応じて調整 */
+}
+
+#user-input {
+    width: calc(100% - 80px); /* ボタンとのバランスを調整 */
+}
+
+button {
+    margin-left: 10px;
+}

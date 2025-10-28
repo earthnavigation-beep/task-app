@@ -20,7 +20,7 @@
         document.body.appendChild(createNav()); // JS関数でナビを挿入
     </script>
     <div class="wrapper">
-        <h1 class="piro">本日のTODOリスト<button id="reset-storage" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button></h1>
+        <h1 class="piro">タスクマネジメント<button id="reset-storage" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button></h1>
         <div class="input-area">
             <div class="task-area">
                 <label for="task-input">タスク(必須)</label>
@@ -59,7 +59,7 @@
             </div>
             <div class="card2">
                 <p class="subtitle-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</p>
-                <button id="reset-storage" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button>
+                <button id="reset-storage2" class="button-red"><i class="bi bi-trash icon-space"></i>ストレージ初期化</button>
                 <p class="task-note">※もとに戻せません</p>
             </div>
             <div class="card2">
@@ -68,6 +68,7 @@
                     <li>タスク内容に半角カンマ「,」を入れないようにしてください。</li>
                     <li>編集時、タスクの文章の前後にスペースが入ってしまいます。削除してください。</li>
                     <li>タスクの順番は保存されますが、万能ではないため、<span class="task-note">順番が前後</span>する可能性があります。</li>
+                    <li>タスク管理から作成されたデータは、「tasks」というKey名で保存されます。</li>
                     <li>保存したCSVは大事にご自身で管理してください。</li>
                 </ul>
             </div>
@@ -78,7 +79,7 @@
     <footer class="footer">
         <p>copyright &copy; 2025 Hiroyuki Doi</p>
         <div class="social-links">
-            <a href="#">X-Japan</a> | <a href="#">ギトギト</a>
+            <a href="#">X-Japan</a> | <a href="#">e-navi</a>
         </div>
     </footer>
 
