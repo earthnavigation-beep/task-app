@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カテゴリ管理</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        .category-list {
+            margin-top: 20px;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .category-item span {
+            flex: 1;
+        }
+
+        .category-item button {
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="../js/nav.js"></script>
+    <script>
+        document.body.appendChild(createNav());
+    </script>
+
+
+    <h1>カテゴリ管理</h1>
+    <div class="wrapper">
+        <input type="text" id="new-category" placeholder="新しいカテゴリ名">
+        <button id="add-category">追加</button>
+
+        <div class="category-list" id="category-list"></div>
+    </div>
+
+
+    <script src="js-key-manage/category.js"></script>
+
+
+</body>
+
+</html>
