@@ -23,17 +23,6 @@
   border-radius: 4px;
   border: 1px solid #aaa;
 }
-.storage-card button {
-  padding: 6px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.storage-card button:hover {
-  background-color: #0056b3;
-}
 
 .key-input {
   padding: 6px;
@@ -55,12 +44,61 @@
   background-color: #0056b3;
 }
 
-.task-link {
-  color: #007bff;
-  text-decoration: none;
+
+.task-link-btn {
+  padding: 6px 12px;
+  background-color: #28a745 !important; /* 緑系で差別化 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 14px;
 }
 
-.task-link:hover {
-  text-decoration: underline;
+.task-link-btn:hover {
+  background-color: #218838 !important;
+}
+
+.category-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.category {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
+
+.category-btn {
+  padding: 6px 12px;
+  background-color: #fd7e14; /* オレンジ */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.category-btn:hover {
+  background-color: #e8590c;
+}
+
+
+.button-row {
+  display: flex;
+  gap: 10px; /* ボタン間の余白 */
+  align-items: center;
+  justify-content: flex-start; /* 左寄せ */
+}
+
+.button-row button {
+  flex: 1; /* 必要なら均等幅に */
+}
+
+select {
+  margin-right: 10px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
 }

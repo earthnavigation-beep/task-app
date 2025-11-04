@@ -1,70 +1,125 @@
+// index、task、task-runner共通コード
+
+const inputDate = document.querySelector('.date');
+const addBtn = document.querySelector('.add-btn');
+const taskList = document.querySelector('.task-list');
 const inputImageName = document.getElementById('image-name');
+let editingTaskId = null; // ← ファイルの最初の方に書いてOK
 
-//追加ボタンを押したら処理を実行する
-addBtn.addEventListener('click', () => {
-  if (!inputForm.value) {
-    document.querySelector('.error-msg').classList.add('show');
-    return;
-  }
 
-  if (editingTaskId) {
-    const taskItem = document.querySelector(`[data-task-id="${editingTaskId}"]`);
-    const contentDiv = taskItem.querySelector('.task-content');
 
-    const rawInput = inputForm.value;
-    const sanitized = sanitizeHtml(rawInput);
+// タスクを上下に移動させる
+const upBtns = document.querySelectorAll('.up-btn');
+const downBtns = document.querySelectorAll('.down-btn');
 
-    contentDiv.innerHTML = sanitized;
-
-    updateLocalStorage(editingTaskId, {
-      raw: rawInput,
-      content: sanitized
-    });
-
-    displayTasks();
-    TaskListBtnEvent();
-    ImageBtnEvent();
-
-    editingTaskId = null;
-    addBtn.textContent = '追加';
-  } else {
-    // 通常の新規追加処理
-    let taskId = setTaskId();
-
-    const rawInput = inputForm.value;
-    const sanitized = sanitizeHtml(rawInput);
-
-    const task = {
-      id: taskId,
-      raw: rawInput,         // 編集用に元の入力を保存
-      content: sanitized,    // 表示用にサニタイズ済みのHTMLを保存
-      date: inputDate.value ? formattedDate(inputDate.value) : null,
-      completed: false,
-      imagePath: inputImageName.value ? `images/${inputImageName.value}` : null
-    };
-
-    taskList.innerHTML += createTaskElement(task); // 表示用に sanitized を使うように
-    TaskListBtnEvent();
-    saveLocalStorage(task);
-    ImageBtnEvent();
-  }
-
-  // 入力フォームをリセット
-  inputForm.value = '';
-  inputDate.value = '';
-  inputImageName.value ='';
+upBtns.forEach((upBtn) => {
+  upBtn.addEventListener('click', (e) => {
+    const item = e.target.closest('.task-item');
+    const prev = item.previousElementSibling;
+    if (prev) {
+      taskList.insertBefore(item, prev);
+    }
+  });
 });
 
-//タスクのidをセットする
-const setTaskId = () => {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  if (tasks.length !== 0) {
-    const task = tasks[tasks.length - 1];
-    return task.id + 1;
-  }
-  return 1;
-}
+downBtns.forEach((downBtn) => {
+  downBtn.addEventListener('click', (e) => {
+    const item = e.target.closest('.task-item');
+    const next = item.nextElementSibling;
+    if (next) {
+      taskList.insertBefore(next, item);
+    }
+  });
+});
 
+// index、tasks、すべてが完了すれば、フラグがリセットされる
+const resetAllFlagsIfComplete = () => {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  if (tasks.length === 0) return;
+
+  const allCompleted = tasks.every(task => task.completed === true);
+
+  if (allCompleted) {
+    const resetTasks = tasks.map(task => {
+      task.completed = false;
+      return task;
+    });
+    localStorage.setItem('tasks', JSON.stringify(resetTasks));
+    displayTasks(); // UIを再描画
+    TaskListBtnEvent();
+  }
+};
+
+
+
+// ドラッグアンドドロップによる上下入れ替え
+const sortable = new Sortable(taskList, {
+  animation: 150,
+  onEnd: () => {
+    updateStorageOrder(); // 並び替え後にローカルストレージを更新
+  }
+});
+
+// Sortableの初期化関数
+const initSortable = () => {
+  new Sortable(taskList, {
+    animation: 150,
+    ghostClass: 'sortable-ghost',
+    onEnd: () => {
+      updateStorageOrder(); // 並び替え後に保存
+    }
+  });
+};
+
+// ローカルストレージに保存する
+const saveLocalStorage = (task) => {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+// ローカルストレージに順番変更を保存する
+const updateStorageOrder = () => {
+  const newOrder = [];
+  document.querySelectorAll('.task-item').forEach(item => {
+    const taskId = parseInt(item.dataset.taskId);
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const task = tasks.find(t => t.id === taskId);
+    if (task) newOrder.push(task);
+  });
+  localStorage.setItem('tasks', JSON.stringify(newOrder));
+};
+
+const ImageBtnEvent = () => {
+  const imageBtns = document.querySelectorAll('.image-btn');
+  imageBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const imagePath = btn.getAttribute('data-image-path');
+      const img = new Image();
+      img.src = imagePath;
+      img.onload = () => {
+        const width = img.width;
+        const height = img.height;
+        window.open(imagePath, 'manualImage', `width=${width},height=${height}`);
+      };
+    });
+  });
+};
+
+//ローカルストレージにタスクがある場合は表示する
+const displayTasks = () => {
+  taskList.innerHTML = '';
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks.sort((a, b) => {
+    return (a.completed === b.completed) ? 0 : a.completed ? 1 : -1;
+  });
+  if (tasks.length !== 0) {
+    tasks.forEach((task) => {
+      taskList.innerHTML += createTaskElement(task);
+    });
+    ImageBtnEvent(); // ← ここでイベントを再設定
+  }
+}
 
 //タスクの完了や削除の処理を実装
 const TaskListBtnEvent = () => {
@@ -150,36 +205,20 @@ const TaskListBtnEvent = () => {
 
   // 編集イベント
   const editButtons = document.querySelectorAll('.edit-btn');
+  if (!editButtons.length) return;
   editButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       const taskId = e.target.dataset.taskId;
       const taskItem = document.querySelector(`[data-task-id="${taskId}"]`);
       const contentDiv = taskItem.querySelector('.task-content');
 
-      // 現在の内容を取得
       const currentContent = contentDiv.innerHTML.replace(/<br>/g, '\n');
 
-      // 入力フォームに内容をセット
       inputForm.value = currentContent;
 
-      // 編集モードに切り替え（例：グローバル変数で管理）
       editingTaskId = taskId;
       // 追加ボタンのラベルを変更
       addBtn.textContent = '更新';
     });
   });
 }
-
-// ローカルストレージの更新関数
-function updateLocalStorage(taskId, updatedData) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  const updatedTasks = tasks.map(task => {
-    if (task.id == taskId) {
-      task.raw = updatedData.raw;
-      task.content = updatedData.content;
-    }
-    return task;
-  });
-  localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-}
-

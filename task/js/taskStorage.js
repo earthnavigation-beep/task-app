@@ -1,10 +1,3 @@
-// ローカルストレージに保存する
-const saveLocalStorage = (task) => {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
-
 document.getElementById('reset-storage').addEventListener('click', () => {
   localStorage.removeItem('tasks'); // または clear()
   displayTasks(); // UIを再描画
@@ -23,14 +16,15 @@ document.getElementById('image-upload').addEventListener('change', (e) => {
   document.getElementById('image-name').value = file.name;
 });
 
-// ローカルストレージに順番変更を保存する
-const updateStorageOrder = () => {
-  const newOrder = [];
-  document.querySelectorAll('.task-item').forEach(item => {
-    const taskId = parseInt(item.dataset.taskId);
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const task = tasks.find(t => t.id === taskId);
-    if (task) newOrder.push(task);
+// ローカルストレージの更新関数
+function updateLocalStorage(taskId, updatedData) {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  const updatedTasks = tasks.map(task => {
+    if (task.id == taskId) {
+      task.raw = updatedData.raw;
+      task.content = updatedData.content;
+    }
+    return task;
   });
-  localStorage.setItem('tasks', JSON.stringify(newOrder));
-};
+  localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+}
