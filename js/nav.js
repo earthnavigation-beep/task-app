@@ -7,7 +7,7 @@ function createNav() {
             <li><a href="../task/index.html">TASK管理</a></li>
             <li><a href="../task/task.html">実務TASK</a></li>
             <li><a href="../task/key-manage.html">タスク一覧</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="../task/category.html">カテゴリ一覧</a></li>
         </ul>
     `;
     return nav;

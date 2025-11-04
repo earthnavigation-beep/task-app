@@ -16,13 +16,14 @@ const formattedDate = (dateString) => {
 function insertSpanNote() {
   const textarea = document.getElementById('task-input');
   const noteTag = '<span class="task-note">※ここに注意書きを入力</span>';
+  textarea.value = textarea.value.trimEnd(); // 末尾の改行を削除
   textarea.value += noteTag;
 }
 
 function insertDivNote() {
   const textarea = document.getElementById('task-input');
   const noteTag = '<div class="task-note">※ここに注意書きを入力</div>';
-  textarea.value += '\n' + noteTag + '\n';
+  textarea.value += noteTag;
 }
 
 function sanitizeHtml(input) {
